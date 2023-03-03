@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'new_entry_screen.dart';
+import '../main.dart';
+import '../modules/journal_entry_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,21 +16,21 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Journal App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Welcome'),
         ),
+        body: Container(
+          child: const JournalEntryList(),
+        ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return NewEntry();
+                  return const NewEntry();
                 },
               ),
             );
@@ -55,8 +57,7 @@ class HomeScreen extends StatelessWidget {
               ListTile(
                 title: const Text('Dark Mode'),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  MyApp.of(context).changeTheme(ThemeMode.dark);
                 },
               ),
             ],

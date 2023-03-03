@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:flutter/widgets.dart';
 import 'package:journal_app/screens/home_screen.dart';
-import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:intl/intl.dart';
 
@@ -75,7 +72,7 @@ class _NewEntryState extends State<NewEntry> {
                 controller: ratingController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Rating',
+                  hintText: 'Rating (1-4)',
                 ),
               ),
             ),
@@ -145,20 +142,3 @@ class _NewEntryState extends State<NewEntry> {
     );
   }
 }
-
-/*class JournalEntry {
-  final int id;
-  final String title;
-  final String body;
-  final int rating;
-  final DateTime date;
-
-  const JournalEntry({
-    required this.id,
-    required this.title,
-    required this.body,
-    required int rating,
-    required DateTime date,
-  });
-}
-*/

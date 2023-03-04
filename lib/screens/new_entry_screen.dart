@@ -111,7 +111,7 @@ class _NewEntryState extends State<NewEntry> {
                     });
                     await deleteDatabase('../data/journal/sqlite3.db');
                     final Database database = await openDatabase(
-                        '../data/journal/sqlite3.db',
+                        '../journal/sqlite3.db',
                         version: 1, onCreate: (Database db, int version) async {
                       await db.execute(
                           'CREATE TABLE IF NOT EXISTS journal_entries(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, body TEXT NOT NULL, rating INTEGER NOT NULL, date TEXT NOT NULL);');
